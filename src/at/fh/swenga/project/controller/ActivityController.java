@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,8 +37,6 @@ public class ActivityController {
 	String lastcategory;
 	String currentUser;
 	boolean categoriesCreated = false;
-	
-	
 
 	@Autowired
 	ActivityRepository activityRepository;
@@ -61,12 +60,9 @@ public class ActivityController {
 	
 	@RequestMapping(value = { "/" })
 	public String index(Model model) {
-		// if(!categoriesCreated)
-		// subcategoryRepository.save(Categories.FillCategories()); //Erstellen
-		// aller Catergories + Subcategories; TODO: löschen!!
-		// auslesen der aktuell eingeloggten person
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         currentUser = auth.getName();
+        
 		categoriesCreated = true;
 
 		model.addAttribute("currentUser", currentUser);
@@ -84,15 +80,17 @@ public class ActivityController {
 		List<State> states = stateRepository.findAll();
 		List<Integer> activitiesInt = new ArrayList<>();
 		
-		if (activities != null) {
-			for (Activity a : activities) {
-				activitiesInt.add(a.getId());
+		if (activities != null) { 
+			if(!activities.isEmpty()) { //Falls nicht Empty: Nach Kategorie filtern, sonst mit leerer Liste weiterarbeiten
+				for (Activity a : activities) {
+					activitiesInt.add(a.getId());
+				}
+				activities = activityRepository.getFilteredActivities(category, activitiesInt);
 			}
 		}
+		else
+			activities = activityRepository.getCatActivities(category);
 
-		if(activities==null) activities = activityRepository.getCatActivities(category); // Falls keine Activties übergeben wurden (also keine herausgefiltert wurden)
-		else activities = activityRepository.getFilteredActivities(category, activitiesInt);
-		
 		model.addAttribute("states", states);
 		model.addAttribute("activities", activities);
 		model.addAttribute("subcategories", subcategories);
@@ -103,8 +101,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = { "/find" })
-	public String find(Model model, @RequestParam(required = false) String searchString, @RequestParam String type,
-			RedirectAttributes redirectAttributes) { // TODO: Es werden alle passenden angezeigt nicht nur die der jeweiligen Categorie-Liste
+	public String find(Model model, @RequestParam(required = false) String searchString, @RequestParam String type, RedirectAttributes redirectAttributes) {
 		List<Activity> activities = null;
 		if (searchString == null)
 			type = "default"; // Falls kein Filter ausgewählt wurde, werden alle ausgegeben
@@ -117,7 +114,7 @@ public class ActivityController {
 			activities = activityRepository.findBySubcategoryNameContainingAllIgnoreCase(searchString);
 			break;
 		case "findState":
-			activities = activityRepository.findByState(searchString);
+			activities = activityRepository.findByStateNameContainingAllIgnoreCase(searchString);
 			break;
 		case "findLocation":
 			activities = activityRepository.findByLocationContainingAllIgnoreCase(searchString);
@@ -131,32 +128,18 @@ public class ActivityController {
 		return "redirect:listActivities";
 	}
 
-	@RequestMapping("/fill")
-	@Transactional
-	public String fillData(Model model) {
-		
-		
-		Activity a = new Activity(subcategoryRepository.findByName("Soccer"), "Graz", stateRepository.findByName("Wien"), "Test", "TestText", 1);
-		activityRepository.save(a);
-
-		Activity c = new Activity(subcategoryRepository.findByName("Tennis"), "Wien", stateRepository.findByName("Burgenland"), "ka", "KaText", 1);
-		activityRepository.save(c);
-
-		
-		Activity b = new Activity(subcategoryRepository.findByName("Counter Strike"), "Graz",stateRepository.findByName("Steiermark"), "Test", "TestText", 1);
-		activityRepository.save(b);
-
-		return "forward:listActivities";
-	}
-
-	//TODO: Edit nur gewissen Personen erlauben
 	@RequestMapping("/addActivity")
-	public String addActivity(Model model, @RequestParam(required = false) int id) { 
-		List<Subcategory> sub = subcategoryRepository.findByCategoryName(lastcategory);
-		Activity a = activityRepository.findById(id);
+	public String addActivity(Model model, @RequestParam(required = false) Integer id, @RequestParam(required = false) String category) { 
+		if(category==null) category = lastcategory; 
+		List<Subcategory> sub = subcategoryRepository.findByCategoryName(category);
+		
+		Activity a;
+		if(id!=null){ 
+			a = activityRepository.findById(id); 
+			model.addAttribute("activity", a);
+		}
 		List<State> states = stateRepository.findAll();
 		
-		model.addAttribute("activity", a);
 		model.addAttribute("states", states);
 		model.addAttribute("subcategories", sub);
 		return "addActivities";
@@ -183,7 +166,11 @@ public class ActivityController {
 		
 		userRepository.save(userobject);
 		
+<<<<<<< HEAD
 		return "showUserProfile";
+=======
+		return "index";
+>>>>>>> refs/remotes/Steve/master
 	}
 	
 	@RequestMapping("/editUserForm")
@@ -193,13 +180,29 @@ public class ActivityController {
 		return "editUser";
 	}
 
+	/*
+	@RequestMapping("/edit")
+	public String editActivityInDatabase(Model model, @RequestParam String title, @RequestParam String text,
+			@RequestParam String state, @RequestParam String location,
+			@RequestParam @DateTimeFormat(pattern = "dd.MM.yyyy") Date date, @RequestParam int restriction,
+			@RequestParam String type, @RequestParam(required = false) boolean closed) {
+		Subcategory s = subcategoryRepository.findByName(type);
+		State stateName = stateRepository.findByName(state);
+		
+		
+		
+		Activity a = new Activity(s, location ,stateName, title, date,  text, restriction, closed);
+		activityRepository.save(a);
+
+		return "forward:listActivities";
+	}*/
 
 	@RequestMapping("/add")
 	public String addActivityInDatabase(Model model, @RequestParam String title, @RequestParam String text,
 			@RequestParam String state, @RequestParam String location,
 			@RequestParam @DateTimeFormat(pattern = "dd.MM.yyyy") Date date, @RequestParam int restriction,
 			@RequestParam String type, @RequestParam(required = false) boolean closed) {
-		Subcategory s = subcategoryRepository.findByName(type); // TODO: Sonst Error
+		Subcategory s = subcategoryRepository.findByName(type);
 		
 		State stateName = stateRepository.findByName(state);
 		Activity a = new Activity(s, location ,stateName, title, date,  text, restriction, closed);
@@ -230,7 +233,7 @@ public class ActivityController {
 		return "forward:listActivities";
 	}
 
-	// @ExceptionHandler(Exception.class) TODO: Wieder aktivieren nach fertigstellung
+	@ExceptionHandler(Exception.class)
 	public String handleAllException(Exception ex) {
 		return "showError";
 	}
