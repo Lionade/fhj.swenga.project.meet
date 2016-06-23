@@ -146,7 +146,7 @@
 								value="${_csrf.token}" />
 
 								<!-- Change this to a button or input when using this as a form -->
-								<button class="btn btn-lg btn-primary btn-block" type="submit" action="#">Change</button>
+								<button class="btn btn-lg btn-primary btn-block" type="submit" action="editUser">Change</button>
 							</fieldset>
 						</form>
 					</div>

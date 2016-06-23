@@ -170,7 +170,7 @@ public class ActivityController {
 		model.addAttribute("currentUser", currentUser);
 		return "activity";
 	}
-	/*
+	
 	@RequestMapping("/editUser")
 	public String editUser(Model model, @RequestParam String name, @RequestParam String age, @RequestParam String city) {
 		
@@ -184,7 +184,7 @@ public class ActivityController {
 		userRepository.save(userobject);
 		
 		return "showUserProfile";
-	}*/
+	}
 	
 	@RequestMapping("/editUserForm")
 	public String editUserForm(Model model) {
