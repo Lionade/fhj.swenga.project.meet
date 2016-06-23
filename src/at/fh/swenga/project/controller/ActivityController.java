@@ -166,11 +166,8 @@ public class ActivityController {
 		
 		userRepository.save(userobject);
 		
-<<<<<<< HEAD
-		return "showUserProfile";
-=======
+
 		return "index";
->>>>>>> refs/remotes/Steve/master
 	}
 	
 	@RequestMapping("/editUserForm")
