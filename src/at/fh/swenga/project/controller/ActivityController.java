@@ -153,6 +153,40 @@ public class ActivityController {
 		model.addAttribute("currentUser", currentUser);
 		return "activity";
 	}
+
+	@RequestMapping("/editActivityForm")
+	public String editActivityForm(Model model, @RequestParam int id)
+	{
+		Activity a = activityRepository.findById(id);
+		List<State> states = stateRepository.findAll();
+		
+		model.addAttribute("activity", a);
+		model.addAttribute("states", states);
+		return "editActivity";
+	}
+	
+	@RequestMapping("/editActivity")
+	public String editActivityInDatabase(Model model, @RequestParam int id, @RequestParam String title, @RequestParam String text,
+			@RequestParam String state, @RequestParam String location,
+			@RequestParam @DateTimeFormat(pattern = "dd.MM.yyyy") Date date, @RequestParam int restriction, @RequestParam(required = false) boolean closed) {
+	
+		
+		
+		Activity a = activityRepository.findById(id);
+		a.setLocation(location);
+		State stateName = stateRepository.findByName(state);
+		a.setState(stateName);
+		a.setTitle(title);
+		a.setDate(date);
+		a.setText(text);
+		a.setRestriction(restriction);
+		
+		activityRepository.save(a);
+		
+		return "index";
+		
+		
+	}
 	
 	@RequestMapping("/editUser")
 	public String editUser(Model model, @RequestParam String name, @RequestParam String age, @RequestParam String city) {
@@ -177,23 +211,10 @@ public class ActivityController {
 		return "editUser";
 	}
 
-	/*
-	@RequestMapping("/edit")
-	public String editActivityInDatabase(Model model, @RequestParam String title, @RequestParam String text,
-			@RequestParam String state, @RequestParam String location,
-			@RequestParam @DateTimeFormat(pattern = "dd.MM.yyyy") Date date, @RequestParam int restriction,
-			@RequestParam String type, @RequestParam(required = false) boolean closed) {
-		Subcategory s = subcategoryRepository.findByName(type);
-		State stateName = stateRepository.findByName(state);
-		
-		
-		
-		Activity a = new Activity(s, location ,stateName, title, date,  text, restriction, closed);
-		activityRepository.save(a);
+	
+	
 
-		return "forward:listActivities";
-	}*/
-
+	
 	@RequestMapping("/add")
 	public String addActivityInDatabase(Model model, @RequestParam String title, @RequestParam String text,
 			@RequestParam String state, @RequestParam String location,

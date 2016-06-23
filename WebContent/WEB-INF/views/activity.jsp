@@ -160,7 +160,7 @@
 
 									</tbody>
 								</table>
-								<!--   
+								<!-- 
 								<c:if test="${activity.owner.username ne currentUser}">
 									<a href="#" class="btn btn-success">Join Activity</a>
 								</c:if> -->
@@ -173,10 +173,10 @@
 										</button>
 									</a>
 								</c:if>
-								<!--  
+								  
 								<c:if test="${activity.owner.username eq currentUser}">
-									<a href="addActivity?id=${activity.id}" class="btn btn-sm btn-warning">Edit Activity</a>
-								</c:if> -->
+									<a href="editActivityForm?id=${activity.id}" class="btn btn-sm btn-warning">Edit Activity</a>
+								</c:if>
 
 							</div>
 						</div>
