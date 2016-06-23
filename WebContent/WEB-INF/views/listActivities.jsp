@@ -55,7 +55,7 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">${currentUser}<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-						<li><a href="user">User Profile</a></li>
+						<li><button class="btn btn-link" onclick="location.href='user'">User Profile</button></li>
 						<c:url value="/logout" var="logoutUrl" />
 						<li role="separator" class="divider"></li>
 						<li><form action="${logoutUrl}" method="post">
@@ -86,15 +86,16 @@
 					</a>
 					<ul aria-expanded="true">
 					</br>
-						<li><a href="addActivity?category=Sport">neue Aktivität erstellen</a></li> <!--  !!!!!!!!!!!  -->
-						</br>
-						<li class="sidebar-search">
+					
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Sport'" style="padding:0px 0px;">Create new activity</button></p> <br/>
+						<p>Search for Activities</p> 
+						<li class="sidebar-search" style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Search for Activities </br>
+									value="${_csrf.token}"/>
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findTitle"> <input
-										class="form-control" placeholder="Suchen..." type="text"
+										class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn" />
 									<button class="btn btn-default" type="submit">
 										<i class="glyphicon glyphicon-search"></i>
@@ -104,16 +105,15 @@
 							</form>
 						</li>
 						</br>
+						<p>Subcategories</p>
 						<li>
-							<p>Subcategories</p>
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" /> <input type="hidden" name="type"
 									value="findSubcategory">
 								<c:forEach items="${subcategories}" var="subcategory">
-									<li><a> <input type="checkbox" name="searchString"
-											value="${subcategory.name}">${subcategory.name}
-									</a>
+									<li> <input type="checkbox" name="searchString"
+											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
@@ -121,24 +121,25 @@
 
 						</li>
 						</br>
+						<p>State</p>
 						<li>
-							<p>Bundesland</p>
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 								<input type="hidden" name="type" value="findState">
 								<c:forEach items="${states}" var="state">
-									<li><a> <input type="checkbox" name="searchString"
-										value="${state.name}">${state.name}</a></li>
+									<li><input type="checkbox" name="searchString"
+										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
 							</form>
 
 						</li>
 						</br>
-						<li>
+						<p>Location search</p>
+						<li style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Ortsuche </br>
+									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
 									<input class="form-control" placeholder="Suchen..." type="text"
@@ -150,6 +151,7 @@
 								</div>
 							</form>
 						</li>
+						<br>
 						
 					</ul>
 				</li>
@@ -161,8 +163,8 @@
 					</a>
 					<ul aria-expanded="false">
 					</br>
-						<li><a href="listActivities?category=Sport">Aktivitäten anzeigen</a></li>
-						<li><a href="addActivity?category=Sport">neue Aktivität erstellen</a></li></ul></li></c:otherwise>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Sport'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Sport'" style="padding:0px 0px;">Create new activity</button></p></ul></li></c:otherwise>
 				</c:choose>
 				
 				<c:choose>
@@ -174,15 +176,16 @@
 					</a>
 					<ul aria-expanded="true">
 					</br>
-						<li><a href="addActivity?category=Games">neue Aktivität erstellen</a></li>
-						</br>
-						<li class="sidebar-search">
+					
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Games'" style="padding:0px 0px;">Create new activity</button></p> <br/>
+						<p>Search for Activities</p> 
+						<li class="sidebar-search" style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Search for Activities </br>
+									value="${_csrf.token}"/>
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findTitle"> <input
-										class="form-control" placeholder="Suchen..." type="text"
+										class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn" />
 									<button class="btn btn-default" type="submit">
 										<i class="glyphicon glyphicon-search"></i>
@@ -192,16 +195,15 @@
 							</form>
 						</li>
 						</br>
+						<p>Subcategories</p>
 						<li>
-							<p>Subcategories</p>
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" /> <input type="hidden" name="type"
 									value="findSubcategory">
 								<c:forEach items="${subcategories}" var="subcategory">
-									<li><a> <input type="checkbox" name="searchString"
-											value="${subcategory.name}">${subcategory.name}
-									</a>
+									<li> <input type="checkbox" name="searchString"
+											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
@@ -209,25 +211,25 @@
 
 						</li>
 						</br>
+						<p>State</p>
 						<li>
-							<p>Bundesland</p>
-							<form action="find">
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> <input type="hidden" name="type"
-									value="findState">
+							<form action="find" method="post">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+								<input type="hidden" name="type" value="findState">
 								<c:forEach items="${states}" var="state">
-									<a> <input type="checkbox" name="searchString"
-										value="${state.name }">${state.name }<br>
+									<li><input type="checkbox" name="searchString"
+										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
 							</form>
 
 						</li>
 						</br>
-						<li>
+						<p>Location search</p>
+						<li style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Ortsuche </br>
+									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
 									<input class="form-control" placeholder="Suchen..." type="text"
@@ -239,6 +241,8 @@
 								</div>
 							</form>
 						</li>
+						<br>
+						
 					</ul>
 				</li></c:when>
 				<c:otherwise>
@@ -249,29 +253,29 @@
 					</a>
 					<ul aria-expanded="false">
 					</br>
-						<li><a href="listActivities?category=Games">Aktivitäten anzeigen</a></li>
-						<li><a href="addActivity?category=Games">neue Aktivität erstellen</a></li></ul></li>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Games'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Games'" style="padding:0px 0px;">Create new activity</button></p></ul></li>
 				</c:otherwise>
 				</c:choose>
 				<c:choose>
-				<c:when test="${category=='party'}">
+				<c:when test="${category=='Party'}">
 				<li class="active">
 					<a area-expanded="true">
 						<i class="glyphicon glyphicon-glass"></i>
 						Party
 					</a>
-					<ul area-expanded="true">
+					<ul aria-expanded="true">
 					</br>
-
-						<li><a href="addActivity?category=party">neue Aktivität erstellen</a></li>
-						</br>
-						<li class="sidebar-search">
+					
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Party'" style="padding:0px 0px;">Create new activity</button></p> <br/>
+						<p>Search for Activities</p> 
+						<li class="sidebar-search" style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Search for Activities </br>
+									value="${_csrf.token}"/>
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findTitle"> <input
-										class="form-control" placeholder="Suchen..." type="text"
+										class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn" />
 									<button class="btn btn-default" type="submit">
 										<i class="glyphicon glyphicon-search"></i>
@@ -281,16 +285,15 @@
 							</form>
 						</li>
 						</br>
+						<p>Subcategories</p>
 						<li>
-							<p>Subcategories</p>
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" /> <input type="hidden" name="type"
 									value="findSubcategory">
 								<c:forEach items="${subcategories}" var="subcategory">
-									<li><a> <input type="checkbox" name="searchString"
-											value="${subcategory.name}">${subcategory.name}
-									</a>
+									<li> <input type="checkbox" name="searchString"
+											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
@@ -298,25 +301,25 @@
 
 						</li>
 						</br>
+						<p>State</p>
 						<li>
-							<p>Bundesland</p>
-							<form action="find">
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> <input type="hidden" name="type"
-									value="findState">
+							<form action="find" method="post">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+								<input type="hidden" name="type" value="findState">
 								<c:forEach items="${states}" var="state">
-									<a> <input type="checkbox" name="searchString"
-										value="${state.name }">${state.name }<br>
+									<li><input type="checkbox" name="searchString"
+										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
 							</form>
 
 						</li>
 						</br>
-						<li>
+						<p>Location search</p>
+						<li style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Ortsuche </br>
+									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
 									<input class="form-control" placeholder="Suchen..." type="text"
@@ -328,6 +331,8 @@
 								</div>
 							</form>
 						</li>
+						<br>
+						
 					</ul>
 				</li>
 				</c:when>
@@ -339,28 +344,29 @@
 					</a>
 					<ul area-expanded="false">
 					</br>
-						<li><a href="listActivities?category=party">Aktivitäten anzeigen</a></li>
-						<li><a href="addActivity?category=party">neue Aktivität erstellen</a></li></ul></li>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Party'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Party'" style="padding:0px 0px;">Create new activity</button></p></ul></li>
 				</c:otherwise>
 				</c:choose>
 				<c:choose>
-				<c:when test="${category=='learning'}">
+				<c:when test="${category=='Learning'}">
 				<li class="active">
 					<a area-expanded="true">
 						<i class="glyphicon glyphicon-book"></i>
 						Learning
 					</a>
-					<ul area-expanded="true">
+					<ul aria-expanded="true">
 					</br>
-						<li><a href="addActivity?category=learning">neue Aktivität erstellen</a></li>
-						</br>
-						<li class="sidebar-search">
+					
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Sport'" style="padding:0px 0px;">Create new activity</button></p> <br/>
+						<p>Search for Activities</p> 
+						<li class="sidebar-search" style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Search for Activities </br>
+									value="${_csrf.token}"/>
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findTitle"> <input
-										class="form-control" placeholder="Suchen..." type="text"
+										class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn" />
 									<button class="btn btn-default" type="submit">
 										<i class="glyphicon glyphicon-search"></i>
@@ -370,16 +376,15 @@
 							</form>
 						</li>
 						</br>
+						<p>Subcategories</p>
 						<li>
-							<p>Subcategories</p>
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" /> <input type="hidden" name="type"
 									value="findSubcategory">
 								<c:forEach items="${subcategories}" var="subcategory">
-									<li><a> <input type="checkbox" name="searchString"
-											value="${subcategory.name}">${subcategory.name}
-									</a>
+									<li> <input type="checkbox" name="searchString"
+											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
@@ -387,25 +392,25 @@
 
 						</li>
 						</br>
+						<p>State</p>
 						<li>
-							<p>Bundesland</p>
-							<form action="find">
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> <input type="hidden" name="type"
-									value="findState">
+							<form action="find" method="post">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+								<input type="hidden" name="type" value="findState">
 								<c:forEach items="${states}" var="state">
-									<a> <input type="checkbox" name="searchString"
-										value="${state.name }">${state.name }<br>
+									<li><input type="checkbox" name="searchString"
+										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
 								<button type="submit" class="btn btn-primary">Suchen</button>
 							</form>
 
 						</li>
 						</br>
-						<li>
+						<p>Location search</p>
+						<li style="list-style-type:none;">
 							<form action="find" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> Ortsuche </br>
+									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
 									<input class="form-control" placeholder="Suchen..." type="text"
@@ -417,6 +422,8 @@
 								</div>
 							</form>
 						</li>
+						<br>
+						
 					</ul>
 				</li>
 				</c:when>
@@ -428,8 +435,8 @@
 					</a>
 					<ul area-expanded="false">
 					</br>
-						<li><a href="listActivities?category=learning">Aktivitäten anzeigen</a></li>
-						<li><a href="addActivity?category=learning">neue Aktivität erstellen</a></li>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Learning'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Learning'" style="padding:0px 0px;">Create new activity</button></p></ul></li>
 				</c:otherwise>
 				</c:choose>
 				</ul>

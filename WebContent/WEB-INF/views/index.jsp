@@ -55,7 +55,7 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">${currentUser}<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-						<li><a href="user">User Profile</a></li>
+						<li><button class="btn btn-link" onclick="location.href='user'">User Profile</button></li>
 						<c:url value="/logout" var="logoutUrl" />
 						<li role="separator" class="divider"></li>
 						<li><form action="${logoutUrl}" method="post">
