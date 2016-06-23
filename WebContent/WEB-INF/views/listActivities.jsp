@@ -116,7 +116,7 @@
 											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -130,7 +130,7 @@
 									<li><input type="checkbox" name="searchString"
 										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -142,7 +142,7 @@
 									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
-									<input class="form-control" placeholder="Suchen..." type="text"
+									<input class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn">
 										<button class="btn btn-default" type="submit">
 											<i class="glyphicon glyphicon-search"></i>
@@ -206,7 +206,7 @@
 											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -220,7 +220,7 @@
 									<li><input type="checkbox" name="searchString"
 										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -232,7 +232,7 @@
 									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
-									<input class="form-control" placeholder="Suchen..." type="text"
+									<input class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn">
 										<button class="btn btn-default" type="submit">
 											<i class="glyphicon glyphicon-search"></i>
@@ -296,7 +296,7 @@
 											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -310,7 +310,7 @@
 									<li><input type="checkbox" name="searchString"
 										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -322,7 +322,7 @@
 									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
-									<input class="form-control" placeholder="Suchen..." type="text"
+									<input class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn">
 										<button class="btn btn-default" type="submit">
 											<i class="glyphicon glyphicon-search"></i>
@@ -387,7 +387,7 @@
 											value="${subcategory.name}"> ${subcategory.name}
 									</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -401,7 +401,7 @@
 									<li><input type="checkbox" name="searchString"
 										value="${state.name}"> ${state.name}</li>
 								</c:forEach>
-								<button type="submit" class="btn btn-primary">Suchen</button>
+								<button type="submit" class="btn btn-primary">Search</button>
 							</form>
 
 						</li>
@@ -413,7 +413,7 @@
 									value="${_csrf.token}" /> 
 								<div class="input-group custom-search-form">
 									<input type="hidden" name="type" value="findLocation">
-									<input class="form-control" placeholder="Suchen..." type="text"
+									<input class="form-control" placeholder="Search..." type="text"
 										name="searchString"> <span class="input-group-btn">
 										<button class="btn btn-default" type="submit">
 											<i class="glyphicon glyphicon-search"></i>

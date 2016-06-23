@@ -1,6 +1,7 @@
 package at.fh.swenga.project.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -103,18 +104,30 @@ public class ActivityController {
 	@RequestMapping(value = { "/find" })
 	public String find(Model model, @RequestParam(required = false) String searchString, @RequestParam String type, RedirectAttributes redirectAttributes) {
 		List<Activity> activities = null;
+		List<String> searchStrings = null;
+		
 		if (searchString == null)
 			type = "default"; // Falls kein Filter ausgewählt wurde, werden alle ausgegeben
-
+		if(searchString.contains(",")) {
+			searchStrings = Arrays.asList(searchString.split(","));
+		}
+			
+		//SearchString werden über , getrennt
 		switch (type) {
 		case "findTitle":
 			activities = activityRepository.findByTitleContainingAllIgnoreCase(searchString);
 			break;
 		case "findSubcategory":
-			activities = activityRepository.findBySubcategoryNameContainingAllIgnoreCase(searchString);
+			if(searchStrings != null)
+				activities = activityRepository.findBySubcategoryNameIn(searchStrings);
+			else 
+				activities = activityRepository.findBySubcategoryNameContainingAllIgnoreCase(searchString);
 			break;
 		case "findState":
-			activities = activityRepository.findByStateNameContainingAllIgnoreCase(searchString);
+			if(searchStrings != null)
+				activities = activityRepository.findByStateNameIn(searchStrings);
+			else
+				activities = activityRepository.findByStateNameContainingAllIgnoreCase(searchString);
 			break;
 		case "findLocation":
 			activities = activityRepository.findByLocationContainingAllIgnoreCase(searchString);

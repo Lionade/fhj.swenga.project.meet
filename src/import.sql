@@ -6,8 +6,8 @@ INSERT INTO Category (name, version) VALUES ('Learning', 0);
 
 INSERT INTO State (name, version) VALUES ('Burgenland', 0);
 INSERT INTO State (name, version) VALUES ('Kärnten', 0);
-INSERT INTO State (name, version) VALUES ('Niederösterreeich', 0);
-INSERT INTO State (name, version) VALUES ('Oberösterreich', 0);
+INSERT INTO State (name, version) VALUES ('Niederoesterreeich', 0);
+INSERT INTO State (name, version) VALUES ('Oberoesterreich', 0);
 INSERT INTO State (name, version) VALUES ('Salzburg', 0);
 INSERT INTO State (name, version) VALUES ('Steiermark', 0);
 INSERT INTO State (name, version) VALUES ('Tirol', 0);
@@ -46,6 +46,6 @@ INSERT INTO user_roles (role, user_id) VALUES ('ROLE_JOHNNY', 3);
 -- Test Aktivitäten
 INSERT INTO Activity (closed, date, deprecated, location, restriction, text, title, version, owner_id, state_id, subcategory_id) VALUES (0, "2016-06-22 14:24:00", 0, 'Graz', 4, 'Suche 4 Leute für ein Fußballspiel in Gösting', 'Fußball', 0, 2, 6, 1);
 INSERT INTO Activity (closed, date, deprecated, location, restriction, text, title, version, owner_id, state_id, subcategory_id) VALUES (0, "2016-06-25 03:25:00", 0, 'Linz', 2, 'Suche Tenniskollegen :)', 'Lust auf ne Partie Tennis?', 0, 1, 4, 3);
-INSERT INTO Activity (closed, date, deprecated, location, restriction, text, title, version, owner_id, subcategory_id) VALUES (0, "2016-06-31 20:11:00", 0, 'Skype', 7, 'Bock auf raiden?', 'WoW', 0, 1, 9);
+INSERT INTO Activity (closed, date, deprecated, location, restriction, text, title, version, owner_id, subcategory_id) VALUES (0, "2016-06-31 08:11:00", 0, 'Skype', 7, 'Bock auf raiden?', 'WoW', 0, 1, 9);
 INSERT INTO Activity (closed, date, deprecated, location, restriction, text, title, version, owner_id, subcategory_id) VALUES (0, "2016-07-01 11:01:00", 0, 'Ts3', 2, '1v1 auf Crossfire', 'Cod!', 0, 2, 7);
 
