@@ -71,7 +71,7 @@
 		</div>
 		</nav>
 		<!-- /#navigation -->
-		<!-- TODO: In foreach ändern -->
+		
 		<!-- SIDEBAR MENU -->
 		<div class="container-fluid">
 		<div class="col-lg-1"></div>
