@@ -189,7 +189,7 @@ public class ActivityController {
 		
 		activityRepository.save(a);
 		
-		return "index";
+		return "forward:fullActivity";
 		
 		
 	}
