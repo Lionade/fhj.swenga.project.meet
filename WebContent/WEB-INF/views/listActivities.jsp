@@ -247,11 +247,11 @@
 				</li></c:when>
 				<c:otherwise>
 				<li>
-				<a aria-expanded="false">
+				<a aria-expanded="true">
 						<i class="fa fa-gamepad"></i>
 						Gaming
 					</a>
-					<ul aria-expanded="false">
+					<ul aria-expanded="true">
 					</br>
 						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Games'" style="padding:0px 0px;">View activities</button></p>
 						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Games'" style="padding:0px 0px;">Create new activity</button></p></ul></li>
@@ -284,23 +284,7 @@
 								</div>
 							</form>
 						</li>
-						</br>
-						<p>Subcategories</p>
-						<li>
-							<form action="find" method="post">
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" /> <input type="hidden" name="type"
-									value="findSubcategory">
-								<c:forEach items="${subcategories}" var="subcategory">
-									<li> <input type="checkbox" name="searchString"
-											value="${subcategory.name}"> ${subcategory.name}
-									</li>
-								</c:forEach>
-								<button type="submit" class="btn btn-primary">Search</button>
-							</form>
-
-						</li>
-						</br>
+						<br>
 						<p>State</p>
 						<li>
 							<form action="find" method="post">
@@ -338,11 +322,11 @@
 				</c:when>
 				<c:otherwise>
 				<li>
-					<a area-expanded="false">
+					<a area-expanded="true">
 						<i class="glyphicon glyphicon-glass"></i>
 						Party
 					</a>
-					<ul area-expanded="false">
+					<ul area-expanded="true">
 					</br>
 						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Party'" style="padding:0px 0px;">View activities</button></p>
 						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Party'" style="padding:0px 0px;">Create new activity</button></p></ul></li>
@@ -358,7 +342,7 @@
 					<ul aria-expanded="true">
 					</br>
 					
-						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Sport'" style="padding:0px 0px;">Create new activity</button></p> <br/>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Learning'" style="padding:0px 0px;">Create new activity</button></p> <br/>
 						<p>Search for Activities</p> 
 						<li class="sidebar-search" style="list-style-type:none;">
 							<form action="find" method="post">
@@ -429,11 +413,11 @@
 				</c:when>
 				<c:otherwise>
 				<li>
-					<a area-expanded="false">
+					<a area-expanded="true">
 						<i class="glyphicon glyphicon-book"></i>
 						Learning
 					</a>
-					<ul area-expanded="false">
+					<ul area-expanded="true">
 					</br>
 						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Learning'" style="padding:0px 0px;">View activities</button></p>
 						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Learning'" style="padding:0px 0px;">Create new activity</button></p></ul></li>

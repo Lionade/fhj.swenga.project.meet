@@ -123,7 +123,7 @@
 									<div class="col-lg-6"><h1 class="text-right">Party</h1></div>
 								</div>
 								</div>
-								<a href="listActivities?category=party">
+								<a href="listActivities?category=Party">
 									<div class="panel-footer">
 										<p class="text-right">Go</p>
 									</div>
@@ -140,7 +140,7 @@
 										<div class="col-lg-6"><h1 class="text-right">Learning</h1></div>
 									</div>
 								</div>
-								<a href="listActivities?category=learning">
+								<a href="listActivities?category=Learning">
 									<div class="panel-footer">
 										<p class="text-right">Go</p>
 									</div>
