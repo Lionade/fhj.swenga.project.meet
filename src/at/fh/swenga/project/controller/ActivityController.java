@@ -108,7 +108,7 @@ public class ActivityController {
 		
 		if (searchString == null)
 			type = "default"; // Falls kein Filter ausgewählt wurde, werden alle ausgegeben
-		if(searchString.contains(",")) {
+		else if(searchString.contains(",")) {
 			searchStrings = Arrays.asList(searchString.split(","));
 		}
 			
