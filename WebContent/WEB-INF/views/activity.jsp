@@ -145,17 +145,23 @@
 										</tr>
 
 										<tr>
-										<tr>
 											<td>Subcategory</td>
-											<td>${activity.subcategory}</td>
+											<td>${activity.subcategory.name}</td>
 										</tr>
 										<tr>
 											<td><span class="glyphicon glyphicon-user">Attendane:</span></td>
 											<td>${activity.restriction}</td>
 										</tr>
-										<td>Description:</td>
-										<td>${activity.text }</td>
-
+										<tr>
+											<td>Description:</td>
+											<td>${activity.text }</td>
+										</tr>
+										<tr>
+										<td>Teilnehmer</td>
+										<td>
+										<c:forEach items="${joinedUsers}" var="joinedUser">
+											${joinedUser.name},
+										</c:forEach></td>
 										</tr>
 
 									</tbody>
