@@ -127,13 +127,13 @@ public class Activity {
 	}
 
 
-//	public List<User> getUsers() {
-//		return users;
-//	}
-//
-//	public void setUsers(List<User> users) {
-//		this.users = users;
-//	}
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 	
 	public User getOwner() {
 		return owner;
@@ -221,6 +221,14 @@ public class Activity {
 
 	public void setSubcategoryString(String subcategoryString) {
 		this.subcategoryString = subcategoryString;
+	}
+	
+	public void addUser(User user)
+	{
+		List<User> users = getUsers();
+		
+		users.add(user);
+		setUsers(users);
 	}
 	
 	
