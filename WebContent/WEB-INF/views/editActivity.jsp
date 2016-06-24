@@ -156,14 +156,6 @@
 							</div>
 						</div>
 
-						<! ----------------  Unterkategorie ---------------- -->
-						<div class="form-group">
-							<label for="inputSubcategory" class="col-md-2 control-label">Subcategory</label>
-							<div class="col-md-10">
-								<input class="form-control" id="subcategory" type="text"
-									name="subcategory" value="${activity.subcategory}">
-							</div>
-						</div>
 						<! ----------------  Bundesland ---------------- -->
 						<div class="form-group">
 							<label for="inputState" class="col-md-2 control-label">Bundesland</label>

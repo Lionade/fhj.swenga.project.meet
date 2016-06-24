@@ -163,6 +163,10 @@ public class ActivityController {
 		
 		model.addAttribute("activity", a);
 		model.addAttribute("currentUser", currentUser);
+		
+		List<User> joinedUsers = a.getUsers();
+		
+		model.addAttribute("joinedUsers", joinedUsers);
 		return "activity";
 	}
 
@@ -209,7 +213,7 @@ public class ActivityController {
 		userobject.addActivity(a);
 		userRepository.save(userobject);
 		
-		return "index";
+		return "forward:fullActivity";
 		
 	}
 	
