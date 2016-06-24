@@ -184,5 +184,13 @@ public class User implements java.io.Serializable {
 	public void setActivities(List<Activity> activities) {
 		this.activities = activities;
 	}
+	
+	public void addActivity(Activity activity)
+	{
+		List<Activity> activities = getActivities();
+		activities.add(activity);
+		
+		setActivities(activities);
+	}
 }
 

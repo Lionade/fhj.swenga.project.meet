@@ -188,6 +188,19 @@ public class ActivityController {
 		
 	}
 	
+	@RequestMapping("/joinActivity")
+	public String joinActivity(Model model, @RequestParam int id)
+	{
+		Activity a = activityRepository.findById(id);
+		User userobject = userRepository.findByUsername(currentUser).get(0);
+		
+		userobject.addActivity(a);
+		userRepository.save(userobject);
+		
+		return "index";
+		
+	}
+	
 	@RequestMapping("/editUser")
 	public String editUser(Model model, @RequestParam String name, @RequestParam String age, @RequestParam String city) {
 		

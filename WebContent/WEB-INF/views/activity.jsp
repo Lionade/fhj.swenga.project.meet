@@ -160,10 +160,10 @@
 
 									</tbody>
 								</table>
-								<!-- 
+								
 								<c:if test="${activity.owner.username ne currentUser}">
-									<a href="#" class="btn btn-success">Join Activity</a>
-								</c:if> -->
+									<a href="joinActivity?id=${activity.id}" class="btn btn-success">Join Activity</a>
+								</c:if>
 
 								<c:if test="${activity.owner.username eq currentUser}">
 									<a href="delete?id=${activity.id}">
