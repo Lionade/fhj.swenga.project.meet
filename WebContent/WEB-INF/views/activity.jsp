@@ -77,8 +77,9 @@
 						Sport
 					</a>
 					<ul area-expanded="false">
-						<li><a href="listActivities?category=Sport">Aktivitäten</a></li>
-						<li><a href="addActivity?category=Sport">neue Aktivität erstellen</a></li>
+						<br>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Sport'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Sport'" style="padding:0px 0px;">Create new activity</button></p>
 					</ul>
 				</li>
 				<li>
@@ -87,8 +88,9 @@
 						Gaming
 					</a>
 					<ul area-expanded="false">
-						<li><a href="listActivities?category=Games">Aktivitäten</a></li>
-						<li><a href="addActivity?category=Games">neue Aktivität erstellen</a></li>
+						<br>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Games'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Games'" style="padding:0px 0px;">Create new activity</button></p>
 					</ul>
 				</li>
 				<li>
@@ -97,8 +99,9 @@
 						Party
 					</a>
 					<ul area-expanded="false">
-						<li><a href="listActivities?category=party">Aktivitäten</a></li>
-						<li><a href="addActivity?category=party">neue Aktivität erstellen</a></li>
+						<br>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Party'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Party'" style="padding:0px 0px;">Create new activity</button></p>
 					</ul>
 				</li>
 				<li>
@@ -107,8 +110,9 @@
 						Learning
 					</a>
 					<ul area-expanded="false">
-						<li><a href="listActivities?category=learning">Aktivitäten</a></li>
-						<li><a href="addActivity?category=learning">neue Aktivität erstellen</a></li>
+						<br>
+						<p><button class="btn btn-link" onclick="location.href='listActivities?category=Learning'" style="padding:0px 0px;">View activities</button></p>
+						<p><button class="btn btn-link" onclick="location.href='addActivity?category=Learning'" style="padding:0px 0px;">Create new activity</button></p>
 					</ul>
 				</li>
 				</ul>
