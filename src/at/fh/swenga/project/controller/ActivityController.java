@@ -153,8 +153,10 @@ public class ActivityController {
 		model.addAttribute("currentUser", currentUser);
 		
 		List<User> joinedUsers = a.getUsers();
+		int anzahl = joinedUsers.size();
 		
 		model.addAttribute("joinedUsers", joinedUsers);
+		model.addAttribute("anzahl", anzahl);
 		return "activity";
 	}
 

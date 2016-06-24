@@ -167,7 +167,7 @@
 									</tbody>
 								</table>
 								
-								<c:if test="${activity.owner.username ne currentUser}">
+								<c:if test="${(activity.owner.username ne currentUser) && (anzahl < activity.restriction)}">
 									<a href="joinActivity?id=${activity.id}" class="btn btn-success">Join Activity</a>
 								</c:if>
 
