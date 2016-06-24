@@ -51,6 +51,7 @@
 			<div class="navbar-header">
 				<a href="./" class="navbar-brand">M E E T .</a>
 			</div>
+			<div>
 			<ul class="nav navbar-nav navbar-right margin-user">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">${currentUser}<span class="caret"></span></a>
@@ -65,6 +66,7 @@
 									type="submit" value="Logout" />
 							</form></li>
 					</ul></li>
+				</div>
 			</ul>
 		</div>
 		</nav>
