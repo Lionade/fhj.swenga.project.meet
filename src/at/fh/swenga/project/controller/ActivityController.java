@@ -112,7 +112,6 @@ public class ActivityController {
 			searchStrings = Arrays.asList(searchString.split(","));
 		}
 			
-		//SearchString werden über , getrennt
 		switch (type) {
 		case "findTitle":
 			activities = activityRepository.findByTitleContainingAllIgnoreCase(searchString);
